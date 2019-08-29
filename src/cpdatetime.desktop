@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=dati_ap_application_title
+Comment=Set the system date and time
+Categories=general
+Type=HildonControlPanelPlugin
+Icon=control_date_time
+Categories=personalisation
+X-control-panel-plugin=libcpdatetime.so
+X-Text-Domain=osso-clock

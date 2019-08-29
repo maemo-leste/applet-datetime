@@ -1,0 +1,13 @@
+Source: applet-datetime
+Section: libs
+Priority: optional
+Maintainer: Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>
+Build-Depends: debhelper (>= 9), autotools-dev, libcityinfo-dev,
+ libhildon1-dev, libosso-dev, libgconf2-dev, osso-af-settings
+Standards-Version: 3.7.2
+
+Package: applet-datetime
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, hildon-libs-l10n-mr | hildon-libs-l10n-mr0, osso-clock-l10n-mr | osso-clock-l10n-mr0
+Description: Control Panel Date & Time plugin
+

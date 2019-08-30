@@ -6,7 +6,7 @@ libcpdatetime_la_CFLAGS = $(OSSO_CFLAGS) $(HILDON_CFLAGS) $(CPL_CFLAGS) \
 			  -DOSSOLOG_COMPILE=1 -DLOCALE_DIR=\"$(localedir)\"
 
 libcpdatetime_la_LDFLAGS = -Wl,--as-needed $(OSSO_LIBS) $(HILDON_LIBS) \
-			   $(CITYINFO_CFLAGS) $(CPL_LIBS) $(TIME_LIBS)
+			   $(CITYINFO_LIBS) $(CPL_LIBS) $(TIME_LIBS)
 
 libcpdatetime_la_SOURCES = cpdatetime.c
 

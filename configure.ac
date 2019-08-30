@@ -46,6 +46,10 @@ PKG_CHECK_MODULES([CITYINFO], [libcityinfo0-0])
 AC_SUBST([CITYINFO_CFLAGS])
 AC_SUBST([CITYINFO_LIBS])
 
+PKG_CHECK_MODULES([TIME], [libtime])
+AC_SUBST([TIME_CFLAGS])
+AC_SUBST([TIME_LIBS])
+
 dnl Installation directories
 controlpanelpluginlibdir=`pkg-config hildon-control-panel --variable=pluginlibdir`
 AC_SUBST([controlpanelpluginlibdir])

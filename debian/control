@@ -3,7 +3,7 @@ Section: libs
 Priority: optional
 Maintainer: Ivaylo Dimitrov <ivo.g.dimitrov.75@gmail.com>
 Build-Depends: debhelper (>= 9), autotools-dev, libcityinfo-dev,
- libhildon1-dev, libosso-dev, libgconf2-dev, osso-af-settings
+ libhildon1-dev, libosso-dev, libgconf2-dev, libtime-dev, osso-af-settings
 Standards-Version: 3.7.2
 
 Package: applet-datetime

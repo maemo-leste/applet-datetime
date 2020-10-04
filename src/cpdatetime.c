@@ -1,14 +1,13 @@
 #include <hildon/hildon.h>
 #include <hildon-cp-plugin/hildon-cp-plugin-interface.h>
 #include <clockd/libtime.h>
+#include <clock/clockcore.h>
+#include <hildon-time-zone-chooser.h>
 
 #include <libintl.h>
 #include <string.h>
 
 #include "config.h"
-
-#include "../clock/clockcore.h"
-#include "../hildon-time-zone-chooser/hildon-time-zone-chooser.h"
 
 typedef struct
 {

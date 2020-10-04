@@ -50,6 +50,14 @@ PKG_CHECK_MODULES([TIME], [libtime])
 AC_SUBST([TIME_CFLAGS])
 AC_SUBST([TIME_LIBS])
 
+PKG_CHECK_MODULES(CLOCKCORE, libclockcore0-0)
+AC_SUBST(CLOCKCORE_CFLAGS)
+AC_SUBST(CLOCKCORE_LIBS)
+
+PKG_CHECK_MODULES(HILDON_TZ, hildon-time-zone-chooser)
+AC_SUBST(HILDON_TZ_CFLAGS)
+AC_SUBST(HILDON_TZ_LIBS)
+
 dnl Installation directories
 controlpanelpluginlibdir=`pkg-config hildon-control-panel --variable=pluginlibdir`
 AC_SUBST([controlpanelpluginlibdir])

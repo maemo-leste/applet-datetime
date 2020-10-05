@@ -119,7 +119,7 @@ cpa_write_city_zone(HildonButton *button, GtkLabel *label, Citytime *ct)
   gchar *city_zone;
 
   gmt_offset = clock_citytime_get_gmt_offset(ct);
-  hours = gmt_offset / 3600;
+  hours = gmt_offset / -3600;
   city = clock_citytime_get_city(ct);
   country = clock_citytime_get_country(ct);
 
@@ -398,9 +398,9 @@ set_time(cpa_dialog *dialog)
   ct = clock_change_current_location(dialog->ct->city);
 
   if (time_changed)
-    clock_change_time(year, month + 1, day, hours, minutes);
+    clock_change_time(year, month, day, hours, minutes);
   else
-    clock_change_time(year, month + 1, day, -1, -1);
+    clock_change_time(year, month, day, -1, -1);
 
   if (ct)
     clock_citytime_free(ct);

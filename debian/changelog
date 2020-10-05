@@ -1,3 +1,9 @@
+applet-datetime (0.6.1) unstable; urgency=low
+
+  * Fix time zone offset in month selection
+
+ -- Merlijn Wajer <merlijn@wizzup.org>  Mon, 05 Oct 2020 20:08:15 +0200
+
 applet-datetime (0.6.0) unstable; urgency=low
 
   * First RE release

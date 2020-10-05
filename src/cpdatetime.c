@@ -381,6 +381,33 @@ _idle_present_parent_window_cb(gpointer user_data)
   return FALSE;
 }
 
+static void
+set_time(cpa_dialog *dialog)
+{
+  guint year = 0;
+  guint minutes = 0;
+  guint hours = 0;
+  guint day = 0;
+  guint month = 0;
+  Citytime *ct;
+
+  hildon_date_button_get_date(HILDON_DATE_BUTTON(dialog->date_button),
+                              &year, &month, &day);
+  hildon_time_button_get_time(HILDON_TIME_BUTTON(dialog->time_button),
+                              &hours, &minutes);
+  ct = clock_change_current_location(dialog->ct->city);
+
+  if (time_changed)
+    clock_change_time(year, month + 1, day, hours, minutes);
+  else
+    clock_change_time(year, month + 1, day, -1, -1);
+
+  if (ct)
+    clock_citytime_free(ct);
+  else
+    g_debug("There was an error while setting new home city!");
+}
+
 static gboolean
 cpa_save_settings(cpa_dialog *dialog)
 {
@@ -392,33 +419,13 @@ cpa_save_settings(cpa_dialog *dialog)
     clock_enable_autosync(dialog->autosync_enabled);
 
     if (!dialog->autosync_enabled)
-    {
-      guint year = 0;
-      guint minutes = 0;
-      guint hours = 0;
-      guint day = 0;
-      guint month = 0;
-      Citytime *ct;
-
-      hildon_date_button_get_date(HILDON_DATE_BUTTON(dialog->date_button),
-                                  &year, &month, &day);
-      hildon_time_button_get_time(HILDON_TIME_BUTTON(dialog->time_button),
-                                  &hours, &minutes);
-      ct = clock_change_current_location(dialog->ct->city);
-
-      if (time_changed)
-        clock_change_time(year, month + 1, day, hours, minutes);
-      else
-        clock_change_time(year, month + 1, day, -1, -1);
-
-      if (ct)
-        clock_citytime_free(ct);
-      else
-        g_debug("There was an error while setting new home city!");
-    }
+      set_time(dialog);
   }
-  else if (!dialog->autosync_enabled)
+  else
+  {
     clock_enable_autosync(FALSE);
+    set_time(dialog);
+  }
 
   return TRUE;
 }

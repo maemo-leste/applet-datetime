@@ -123,7 +123,7 @@ cpa_write_city_zone(HildonButton *button, GtkLabel *label, Citytime *ct)
   city = clock_citytime_get_city(ct);
   country = clock_citytime_get_country(ct);
 
-  if (gmt_offset == 3600 * hours)
+  if (gmt_offset == -3600 * hours)
   {
     const char *fmt = dgettext("osso-clock", "cloc_fi_timezonefull");
 
